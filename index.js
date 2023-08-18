@@ -24,7 +24,7 @@ Challenge 2:
    close button is clicked.
 */
 
-const closeModal = document.getElementById("modal-close-btn")
-closeModal.addEventListener('click', function(){
+const modalCloseModal = document.getElementById("modal-close-btn")
+modalCloseModal.addEventListener('click', function(){
    modal.style.display = "none"
 })
