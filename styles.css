@@ -124,7 +124,7 @@ Challenge:
     color: whitesmoke;
 }
 
-modal-close-btn:hover,
+.modal-close-btn:hover,
 .modal-close-btn:active{
     color: red;
     cursor: pointer;
