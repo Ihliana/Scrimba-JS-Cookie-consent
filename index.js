@@ -5,6 +5,7 @@ const consentForm = document.getElementById("consent-form")
 const modalText = document.getElementById('modal-text')
 
 
+
 modalCloseModal.addEventListener('click', function(){
    modal.style.display = "none"
 })
@@ -15,6 +16,32 @@ setTimeout(function(){
 
 consentForm.addEventListener("submit", (e) => {
    e.preventDefault()
+
+   /*   
+      Challenge: 
+      1. Inside the body of this event listener, 
+         create a const and set it equals to a new 
+         instance of FormData which takes in our HTML 
+         form element as a parameter.
+      2. Log out the const (you should just get 
+         a FormData object).
+   */ 
+
+   const consentFormData = new FormData(consentForm)
+
+
+   /*   
+      Challenge: 
+      1. Create a const to store the user's name and
+         use a FormData method to extract the 
+         submitted name from the FormData object.
+      2. Insert the user's name into the HTML string
+         that contains the final message we show our
+         users.
+   */
+
+   const userName = consentFormData.get('fullName')
+   
    
    modalText.innerHTML = `
          <div class="modal-inner-loading">
@@ -30,7 +57,7 @@ consentForm.addEventListener("submit", (e) => {
 
    setTimeout(function(){
       document.getElementById('modal-inner').innerHTML = `
-         <h2>Thanks you sucker! </h2>
+         <h2>Thanks <span class="modal-display-name">${userName}</span>, you sucker! </h2>
             <p>We just sold the rights to your eternal soul.</p>
             <div class="idiot-gif">
                <img src="images/pirate.gif">
@@ -38,42 +65,3 @@ consentForm.addEventListener("submit", (e) => {
       ` 
    }, 3000)
 })
-
-
-/*
-Challenge:
-1. Take control of the "modal-text" element. 
-2. Make it so that when a user clicks on 
-the accept button, the HTML string below
-is inserted into the modal-text div.
-
-<div class="modal-inner-loading">
-<img src="images/loading.svg" class="loading">
-<p id="uploadText">
-Uploading your data to the dark web...
-</p>
-</div>
-*/
-
-/*   
-Challenge: 
-1. Use a setTimeout to make the phrase "Uploading
-   your data to the dark web" change to "Making the 
-   sale..." after 1.5 seconds.
-⚠️ Do not change the loading svg!
-*/  
-
-/*   
-Challenge: 
-1. Make it so that 1.5 seconds after seeing the 
-   "Making the sale..." message, the modal is 
-   cleared of its content and the following 
-   string of HTML is displayed instead.
-   
-   `<h2>Thanks you sucker! </h2>
-    <p>We just sold the rights to your eternal soul.</p>
-    <div class="idiot-gif">
-        <img src="images/pirate.gif">
-    </div>
-    ` 
-*/  
