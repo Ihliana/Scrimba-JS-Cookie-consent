@@ -34,13 +34,6 @@ consentForm.addEventListener("submit", (e) => {
             document.getElementById('upload-text').textContent = "Making the sale..."
      },1500)
 
-               
-      /*   
-      Challenge: 
-      1. Make the button that closes the modal disabled.
-      2. Make that button become usable when the final 
-         modal message has been displayed to the user.
-      */ 
 
    setTimeout(function(){
       document.getElementById('modal-inner').innerHTML = `
